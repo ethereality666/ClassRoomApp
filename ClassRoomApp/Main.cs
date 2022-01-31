@@ -15,8 +15,7 @@ namespace ClassRoomApp {
             InitializeComponent();
             updateStudentInfo();
         }
-
-		void exportData(DataGridView dataGrid) {
+		private void exportData(DataGridView dataGrid) {
 			Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
 			Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
 			Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
