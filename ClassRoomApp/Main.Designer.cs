@@ -33,7 +33,6 @@ namespace ClassRoomApp
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonExportStudents = new System.Windows.Forms.Button();
             this.buttonStudentUpdate = new System.Windows.Forms.Button();
-            this.buttonChangeStudInformation = new System.Windows.Forms.Button();
             this.buttonDeleteStudent = new System.Windows.Forms.Button();
             this.buttonStudentAdd = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -54,7 +53,7 @@ namespace ClassRoomApp
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxStudentID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
@@ -73,7 +72,7 @@ namespace ClassRoomApp
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(991, 588);
+            this.tabControl1.Size = new System.Drawing.Size(776, 497);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -81,7 +80,6 @@ namespace ClassRoomApp
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.buttonExportStudents);
             this.tabPage1.Controls.Add(this.buttonStudentUpdate);
-            this.tabPage1.Controls.Add(this.buttonChangeStudInformation);
             this.tabPage1.Controls.Add(this.buttonDeleteStudent);
             this.tabPage1.Controls.Add(this.buttonStudentAdd);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -89,22 +87,23 @@ namespace ClassRoomApp
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(983, 562);
+            this.tabPage1.Size = new System.Drawing.Size(768, 471);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ученики";
             // 
             // buttonExportStudents
             // 
-            this.buttonExportStudents.Location = new System.Drawing.Point(902, 530);
+            this.buttonExportStudents.Location = new System.Drawing.Point(607, 442);
             this.buttonExportStudents.Name = "buttonExportStudents";
             this.buttonExportStudents.Size = new System.Drawing.Size(75, 23);
             this.buttonExportStudents.TabIndex = 5;
             this.buttonExportStudents.Text = "Экспорт";
             this.buttonExportStudents.UseVisualStyleBackColor = true;
+            this.buttonExportStudents.Click += new System.EventHandler(this.buttonExportStudents_Click);
             // 
             // buttonStudentUpdate
             // 
-            this.buttonStudentUpdate.Location = new System.Drawing.Point(821, 530);
+            this.buttonStudentUpdate.Location = new System.Drawing.Point(688, 442);
             this.buttonStudentUpdate.Name = "buttonStudentUpdate";
             this.buttonStudentUpdate.Size = new System.Drawing.Size(75, 23);
             this.buttonStudentUpdate.TabIndex = 4;
@@ -112,38 +111,31 @@ namespace ClassRoomApp
             this.buttonStudentUpdate.UseVisualStyleBackColor = true;
             this.buttonStudentUpdate.Click += new System.EventHandler(this.buttonStudentUpdate_Click);
             // 
-            // buttonChangeStudInformation
-            // 
-            this.buttonChangeStudInformation.Location = new System.Drawing.Point(169, 530);
-            this.buttonChangeStudInformation.Name = "buttonChangeStudInformation";
-            this.buttonChangeStudInformation.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeStudInformation.TabIndex = 3;
-            this.buttonChangeStudInformation.Text = "Изменить";
-            this.buttonChangeStudInformation.UseVisualStyleBackColor = true;
-            // 
             // buttonDeleteStudent
             // 
-            this.buttonDeleteStudent.Location = new System.Drawing.Point(88, 530);
+            this.buttonDeleteStudent.Location = new System.Drawing.Point(88, 442);
             this.buttonDeleteStudent.Name = "buttonDeleteStudent";
             this.buttonDeleteStudent.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteStudent.TabIndex = 2;
             this.buttonDeleteStudent.Text = "Удалить";
             this.buttonDeleteStudent.UseVisualStyleBackColor = true;
+            this.buttonDeleteStudent.Click += new System.EventHandler(this.buttonDeleteStudent_Click);
             // 
             // buttonStudentAdd
             // 
-            this.buttonStudentAdd.Location = new System.Drawing.Point(7, 530);
+            this.buttonStudentAdd.Location = new System.Drawing.Point(7, 442);
             this.buttonStudentAdd.Name = "buttonStudentAdd";
             this.buttonStudentAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonStudentAdd.TabIndex = 1;
             this.buttonStudentAdd.Text = "Добавить";
             this.buttonStudentAdd.UseVisualStyleBackColor = true;
+            this.buttonStudentAdd.Click += new System.EventHandler(this.buttonStudentAdd_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.textBoxStudentID);
             this.groupBox2.Controls.Add(this.textBoxPhone);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
@@ -156,9 +148,9 @@ namespace ClassRoomApp
             this.groupBox2.Controls.Add(this.textBoxSurname);
             this.groupBox2.Controls.Add(this.textBoxName);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(7, 352);
+            this.groupBox2.Location = new System.Drawing.Point(7, 261);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(970, 172);
+            this.groupBox2.Size = new System.Drawing.Size(756, 172);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Управление данными";
@@ -168,7 +160,7 @@ namespace ClassRoomApp
             this.groupBox1.Controls.Add(this.dataGridViewStudent);
             this.groupBox1.Location = new System.Drawing.Point(7, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(970, 339);
+            this.groupBox1.Size = new System.Drawing.Size(756, 248);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Данные об учениках";
@@ -178,7 +170,7 @@ namespace ClassRoomApp
             this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStudent.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewStudent.Name = "dataGridViewStudent";
-            this.dataGridViewStudent.Size = new System.Drawing.Size(958, 314);
+            this.dataGridViewStudent.Size = new System.Drawing.Size(744, 223);
             this.dataGridViewStudent.TabIndex = 0;
             // 
             // tabPage2
@@ -268,10 +260,8 @@ namespace ClassRoomApp
             "8 Б",
             "8 В",
             "9 А",
-            "9 Б ",
-            "9 В",
+            "9 Б",
             "10 А",
-            "10 Б",
             "11 А"});
             this.listBoxClass.Location = new System.Drawing.Point(287, 72);
             this.listBoxClass.Name = "listBoxClass";
@@ -337,12 +327,12 @@ namespace ClassRoomApp
             this.textBoxPhone.Size = new System.Drawing.Size(100, 20);
             this.textBoxPhone.TabIndex = 12;
             // 
-            // textBox5
+            // textBoxStudentID
             // 
-            this.textBox5.Location = new System.Drawing.Point(112, 146);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 13;
+            this.textBoxStudentID.Location = new System.Drawing.Point(112, 146);
+            this.textBoxStudentID.Name = "textBoxStudentID";
+            this.textBoxStudentID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStudentID.TabIndex = 13;
             // 
             // label7
             // 
@@ -366,7 +356,7 @@ namespace ClassRoomApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 612);
+            this.ClientSize = new System.Drawing.Size(800, 521);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Main";
@@ -390,7 +380,6 @@ namespace ClassRoomApp
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button buttonExportStudents;
         private System.Windows.Forms.Button buttonStudentUpdate;
-        private System.Windows.Forms.Button buttonChangeStudInformation;
         private System.Windows.Forms.Button buttonDeleteStudent;
         private System.Windows.Forms.Button buttonStudentAdd;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -398,7 +387,7 @@ namespace ClassRoomApp
         private System.Windows.Forms.DataGridView dataGridViewStudent;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxStudentID;
         private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
